@@ -1,4 +1,5 @@
-<h1>Searching for - <%= @search_term %></h1>
+<p>Powered By Food2Fork.com</p>
+
 <table border="1">
   <tr>
     <th>Image</th>
@@ -7,10 +8,9 @@
   </tr>
   <% @recipes.each do |recipe| %>
     <tr class=<%= cycle('even', 'odd')%>>
-      <td><%= link_to image_tag(recipe["image_url"], size: "50x50"), recipe["f2f_url"]%></td>
-      <td><%= recipe["title"] %></td>
+      <td><%= link_to image_tag(recipe["image_url"], size: "100x100"), recipe["f2f_url"]%></td>
+      <td><%= link_to sanitize(recipe["title"]), recipe["f2f_url"]  %></td>
       <td><%= number_with_precision(recipe["social_rank"], :precision => 0)  %></td>
     </tr>
   <% end %>
 </table>
-<p>Powered by <a href="http://www.food2fork.com"><em>food2fork.com</em></a></p>
